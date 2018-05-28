@@ -25,11 +25,8 @@ namespace FamilyBucksProgram {
         }
 
         private void LoadAvailableChores() {
-
-            availableChores.Add(new FamilyChore("Prepared a family meal", 2.50));
-            availableChores.Add(new FamilyChore("Cleaned my room", 2.00));
-            availableChores.Add(new FamilyChore("Fed and watered Diamond", 0.50));
-            availableChores.Add(new FamilyChore("Laundered my clothing", 1.00));
+            ChoresDao dao = new ChoresDao();
+            availableChores = dao.Load();            
         }
 
         private void PopulateListView() {

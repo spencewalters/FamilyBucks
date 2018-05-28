@@ -25,7 +25,6 @@
         private void InitializeComponent() {
             this.titleLbl = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
-            this.registerBtn = new System.Windows.Forms.Button();
             this.mathBtn = new System.Windows.Forms.Button();
             this.typingLbl = new System.Windows.Forms.Button();
             this.nycBtn = new System.Windows.Forms.Button();
@@ -39,6 +38,7 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.freeBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.myCharacterButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,28 +59,18 @@
             // loginBtn
             // 
             this.loginBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.Location = new System.Drawing.Point(22, 65);
+            this.loginBtn.Location = new System.Drawing.Point(12, 57);
             this.loginBtn.Name = "loginBtn";
-            this.loginBtn.Size = new System.Drawing.Size(164, 59);
+            this.loginBtn.Size = new System.Drawing.Size(121, 56);
             this.loginBtn.TabIndex = 1;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = true;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
-            // registerBtn
-            // 
-            this.registerBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registerBtn.Location = new System.Drawing.Point(269, 65);
-            this.registerBtn.Name = "registerBtn";
-            this.registerBtn.Size = new System.Drawing.Size(74, 39);
-            this.registerBtn.TabIndex = 2;
-            this.registerBtn.Text = "Register";
-            this.registerBtn.UseVisualStyleBackColor = true;
-            // 
             // mathBtn
             // 
             this.mathBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mathBtn.Location = new System.Drawing.Point(244, 152);
+            this.mathBtn.Location = new System.Drawing.Point(12, 307);
             this.mathBtn.Name = "mathBtn";
             this.mathBtn.Size = new System.Drawing.Size(164, 39);
             this.mathBtn.TabIndex = 3;
@@ -92,7 +82,7 @@
             // typingLbl
             // 
             this.typingLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typingLbl.Location = new System.Drawing.Point(244, 217);
+            this.typingLbl.Location = new System.Drawing.Point(266, 262);
             this.typingLbl.Name = "typingLbl";
             this.typingLbl.Size = new System.Drawing.Size(164, 39);
             this.typingLbl.TabIndex = 4;
@@ -103,7 +93,7 @@
             // nycBtn
             // 
             this.nycBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nycBtn.Location = new System.Drawing.Point(26, 217);
+            this.nycBtn.Location = new System.Drawing.Point(266, 307);
             this.nycBtn.Name = "nycBtn";
             this.nycBtn.Size = new System.Drawing.Size(164, 39);
             this.nycBtn.TabIndex = 5;
@@ -148,9 +138,9 @@
             // rewardsBtn
             // 
             this.rewardsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rewardsBtn.Location = new System.Drawing.Point(270, -1);
+            this.rewardsBtn.Location = new System.Drawing.Point(314, 6);
             this.rewardsBtn.Name = "rewardsBtn";
-            this.rewardsBtn.Size = new System.Drawing.Size(115, 24);
+            this.rewardsBtn.Size = new System.Drawing.Size(89, 57);
             this.rewardsBtn.TabIndex = 9;
             this.rewardsBtn.Text = "Rewards";
             this.rewardsBtn.UseVisualStyleBackColor = true;
@@ -165,9 +155,9 @@
             this.panel1.Controls.Add(this.balanceValueLbl);
             this.panel1.Controls.Add(this.balanceLbl);
             this.panel1.Controls.Add(this.rewardsBtn);
-            this.panel1.Location = new System.Drawing.Point(22, 352);
+            this.panel1.Location = new System.Drawing.Point(12, 352);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(386, 83);
+            this.panel1.Size = new System.Drawing.Size(418, 88);
             this.panel1.TabIndex = 11;
             // 
             // pictureBox1
@@ -183,9 +173,9 @@
             // aboutBtn
             // 
             this.aboutBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aboutBtn.Location = new System.Drawing.Point(356, 66);
+            this.aboutBtn.Location = new System.Drawing.Point(356, 57);
             this.aboutBtn.Name = "aboutBtn";
-            this.aboutBtn.Size = new System.Drawing.Size(74, 38);
+            this.aboutBtn.Size = new System.Drawing.Size(74, 56);
             this.aboutBtn.TabIndex = 12;
             this.aboutBtn.Text = "About";
             this.aboutBtn.UseVisualStyleBackColor = true;
@@ -206,7 +196,7 @@
             // freeBtn
             // 
             this.freeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.freeBtn.Location = new System.Drawing.Point(22, 152);
+            this.freeBtn.Location = new System.Drawing.Point(12, 217);
             this.freeBtn.Name = "freeBtn";
             this.freeBtn.Size = new System.Drawing.Size(164, 39);
             this.freeBtn.TabIndex = 14;
@@ -218,7 +208,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(244, 283);
+            this.button1.Location = new System.Drawing.Point(12, 262);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(164, 39);
             this.button1.TabIndex = 15;
@@ -227,11 +217,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // myCharacterButton
+            // 
+            this.myCharacterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myCharacterButton.Location = new System.Drawing.Point(207, 57);
+            this.myCharacterButton.Name = "myCharacterButton";
+            this.myCharacterButton.Size = new System.Drawing.Size(143, 56);
+            this.myCharacterButton.TabIndex = 16;
+            this.myCharacterButton.Tag = "session";
+            this.myCharacterButton.Text = "My Character";
+            this.myCharacterButton.UseVisualStyleBackColor = true;
+            this.myCharacterButton.Click += new System.EventHandler(this.myCharacterButton_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 452);
+            this.Controls.Add(this.myCharacterButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.freeBtn);
             this.Controls.Add(this.exitBtn);
@@ -240,7 +243,6 @@
             this.Controls.Add(this.nycBtn);
             this.Controls.Add(this.typingLbl);
             this.Controls.Add(this.mathBtn);
-            this.Controls.Add(this.registerBtn);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.titleLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -259,7 +261,6 @@
 
         private System.Windows.Forms.Label titleLbl;
         private System.Windows.Forms.Button loginBtn;
-        private System.Windows.Forms.Button registerBtn;
         private System.Windows.Forms.Button mathBtn;
         private System.Windows.Forms.Button typingLbl;
         private System.Windows.Forms.Button nycBtn;
@@ -273,6 +274,7 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Button freeBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button myCharacterButton;
     }
 }
 

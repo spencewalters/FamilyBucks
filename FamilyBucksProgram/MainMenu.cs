@@ -4,8 +4,7 @@ using System.Windows.Forms;
 
 
 namespace FamilyBucksProgram {
-    public partial class MainMenu : Form
-    {
+    public partial class MainMenu : Form {
         FamilyBucksProgramManager programManager;
 
         public MainMenu() {
@@ -28,32 +27,6 @@ namespace FamilyBucksProgram {
             SoundPlayer player = new SoundPlayer();
             player.SoundLocation = musicPath;
             player.Play();
-        }
-
-        private void aboutBtn_Click(object sender, EventArgs e) {
-            About aboutForm = new About();
-            aboutForm.ShowDialog();
-        }
-
-        private void rewardsBtn_Click(object sender, EventArgs e) {
-            Rewards rewardsForm = new Rewards();
-            rewardsForm.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            Close();
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e) {
-            try {
-                if (loginBtn.Text == "Login")
-                    LoginAction();
-                else
-                    LogoutAction();
-            }
-            catch(Exception exception) {
-                ExceptionHandler.RespondTo(exception, "Something went wrong during login.");
-            }
         }
 
         private void LogoutAction() {
@@ -120,7 +93,7 @@ namespace FamilyBucksProgram {
 
             if (programManager.PermitsPlaying(program)) {
                 programManager.RecordAsPlayed(program);
-                
+
                 switch (program.Name) {
                     case "Math Game":
                         resultTransaction = PlayMathGame();
@@ -159,7 +132,7 @@ namespace FamilyBucksProgram {
             choresForm.ShowDialog();
             return choresForm.ResultTransaction;
         }
-        
+
         private BankTransaction PlayMathGame() {
             MathGameForm form = new MathGameForm();
             form.ShowDialog();
@@ -178,15 +151,71 @@ namespace FamilyBucksProgram {
         }
 
         private void freeBtn_Click(object sender, EventArgs e) {
-            RunProgram(new FreeFamilyBuck());
+            try {
+                RunProgram(new FreeFamilyBuck());
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception);
+            }
         }
 
         private void mathBtn_Click(object sender, EventArgs e) {
-            RunProgram(new MathGame());
+            try {
+                RunProgram(new MathGame());
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            RunProgram(new ChoresCompletionProgram());            
+            try {
+                RunProgram(new ChoresCompletionProgram());
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception);
+            }
+        }
+
+        private void aboutBtn_Click(object sender, EventArgs e) {
+            try {
+                About aboutForm = new About();
+                aboutForm.ShowDialog();
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception);
+            }
+        }
+
+        private void rewardsBtn_Click(object sender, EventArgs e) {
+            try {
+                RewardsForm rewardsForm = new RewardsForm();
+                rewardsForm.ShowDialog();
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            Close();
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e) {
+            try {
+                if (loginBtn.Text == "Login")
+                    LoginAction();
+                else
+                    LogoutAction();
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception, "Something went wrong during login.");
+            }
+        }
+
+        private void myCharacterButton_Click(object sender, EventArgs e) {
+            MyCharacter myCharactor = new MyCharacter();
+            myCharactor.ShowDialog();
         }
     }
 }

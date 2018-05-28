@@ -4,40 +4,40 @@ using System.IO;
 using System.Text;
 
 namespace FamilyBucksProgram {
-    public class ChoresDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}Chores\\";
-        private Type UseType = typeof(FamilyChore);
-        private string storageFilenamePrefix = "CHR";
+    public class RewardDao {
+        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}Rewards\\";
+        private Type UseType = typeof(InGameReward);
+        private string storageFilenamePrefix = "RWD";
         private string storageFilenameExtension = "fbf";
         private string StorageFilePath() {
             return $"{storagePath}{storageFilenamePrefix}{UseType.Name}.{storageFilenameExtension}";
         }
 
-        public void Save(List<Chore> chores) {
+        public void Save(List<Reward> rewards) {
             string filename = StorageFilePath();
             StreamWriter file = new StreamWriter(filename);
 
-            foreach (Chore chore in chores) {
-                WriteEntry(chore, file);
+            foreach (Reward reward in rewards) {
+                WriteEntry(reward, file);
             }
 
             file.Close();
         }
 
-        public List<Chore> Load() {
+        public List<Reward> Load() {
             return LoadFromFile(StorageFilePath());
         }
 
-        private List<Chore> LoadFromFile(string filename) {
-            List<Chore> list = new List<Chore>();
+        private List<Reward> LoadFromFile(string filename) {
+            List<Reward> list = new List<Reward>();
 
             if (File.Exists(filename)) {
                 StreamReader file = new StreamReader(filename);
                 string entry = file.ReadLine();
                 while (String.IsNullOrEmpty(entry) == false) {
-                    Chore chore = ParseEntry(entry);
-                    if (chore.IsActive)
-                        list.Add(chore);
+                    Reward Reward = ParseEntry(entry);
+                    if (Reward.IsActive)
+                        list.Add(Reward);
 
                     entry = file.ReadLine();
                 }
@@ -50,12 +50,12 @@ namespace FamilyBucksProgram {
             return list;
         }
 
-        private Chore EmptyChore() {
-            return new FamilyChore();
+        private Reward EmptyReward() {
+            return new InGameReward();
         }
 
-        private Chore ParseEntry(string entry) {
-            Chore chore = EmptyChore();
+        private Reward ParseEntry(string entry) {
+            Reward reward = EmptyReward();
             string[] fields = entry.Split(',');
             if (fields.Length >= 4) {
                 string key = fields[0].Trim();
@@ -63,25 +63,25 @@ namespace FamilyBucksProgram {
                 double value = double.Parse(fields[2]);
                 string description = fields[3].Trim();
 
-                chore = new FamilyChore(name, value, description);
-                chore.SetKey(key);
+                reward = new InGameReward(name, value, description);
+                reward.SetKey(key);
             }
-            return chore;
+            return reward;
         }
 
-        private static void WriteEntry(Chore chore, StreamWriter file) {
+        private static void WriteEntry(Reward Reward, StreamWriter file) {
             StringBuilder builder = new StringBuilder();
 
-            builder.Append(chore.Key);
+            builder.Append(Reward.Key);
 
             builder.Append(",");
-            builder.Append(chore.Name);
+            builder.Append(Reward.Name);
 
             builder.Append(",");
-            builder.Append(chore.Value.ToString("N3"));
+            builder.Append(Reward.Price.ToString("N3"));
 
             builder.Append(",");
-            builder.Append(chore.Description);
+            builder.Append(Reward.Description);
 
             file.WriteLine(builder.ToString());
         }

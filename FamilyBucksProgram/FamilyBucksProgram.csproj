@@ -204,6 +204,10 @@
   <ItemGroup>
     <None Include="Resources\Smiling.png" />
     <Content Include="FamilyBucksCoin_64px.ico" />
+    <None Include="Resources\happiness.png" />
+    <None Include="Resources\standing-up-man-.png" />
+    <None Include="Resources\fields.png" />
+    <None Include="Resources\home.png" />
     <Content Include="Resources\Victory.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

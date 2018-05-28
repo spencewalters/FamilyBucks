@@ -29,3 +29,6 @@ To-do:
 * Rewards purchase & cash-out
 * User files import/export
 	- Requires parental signoff for both
+* Add MSMQ or some other messaging
+	- Allow remote admin of another installation
+		- Update chores, rewards, program configurations remotely

@@ -10,8 +10,9 @@ What's fundamentally working as of 5/27/2018:
  - Chores Program (75% ready)
 
 To-do:
-* Add logging
+(x) Add logging
 * Add unit testing
+* Game configuration - set math parameters (difficulty)
 * Admin menu
 	-> Chores (Add/Edit/Remove)
 	-> Rewards(Add/Edit/Remove)

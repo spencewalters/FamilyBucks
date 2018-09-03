@@ -4,15 +4,34 @@ using System.Windows.Forms;
 
 
 namespace FamilyBucksProgram {
-    public partial class MainMenu : Form {
+    public partial class MainMenuForm : Form {
         FamilyBucksProgramManager programManager;
 
-        public MainMenu() {
+        public MainMenuForm() {
             programManager = new FamilyBucksProgramManager();
             InitializeComponent();
 
+
+            log.Info($"Program starting {Application.ProductName} {Application.ProductVersion}");
+            Console.WriteLine("logging?");
+
             ApplyDefaults();
             PlayMusic();
+            CheckForSetup();
+        }
+
+        private void CheckForSetup() {
+            // if no admin users in system,
+            // prompt to create admin user
+            // that person will be able to login and create more users
+            //   - have admin type user
+            //   - have ability to control whether PIN is required for all users
+            //   - change login to show picture of user, click on user, then prompt for pin if required
+
+            log.Error("test");
+            log.Warn("another test");
+            log.Debug("what");
+            log.Fatal("not good");
         }
 
         private void ApplyDefaults() {
@@ -21,12 +40,14 @@ namespace FamilyBucksProgram {
         }
 
         public void PlayMusic() {
-            string musicPath = AppDomain.CurrentDomain.BaseDirectory + "Resources\\ShineBrightLikeADiamondClip.wav";
-            Console.WriteLine("Music path: " + musicPath);
+            if (Properties.Settings.Default.PlayThemeMusicOnStartup) {
+                string musicPath = AppDomain.CurrentDomain.BaseDirectory + Properties.Settings.Default.ThemeMusicPath;
+                Console.WriteLine("Music path: " + musicPath);
 
-            SoundPlayer player = new SoundPlayer();
-            player.SoundLocation = musicPath;
-            player.Play();
+                SoundPlayer player = new SoundPlayer();
+                player.SoundLocation = musicPath;
+                player.Play();
+            }
         }
 
         private void LogoutAction() {
@@ -217,5 +238,8 @@ namespace FamilyBucksProgram {
             MyCharacter myCharactor = new MyCharacter();
             myCharactor.ShowDialog();
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+        (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     }
 }

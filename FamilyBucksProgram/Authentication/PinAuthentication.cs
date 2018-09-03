@@ -2,13 +2,18 @@
 
 namespace FamilyBucksProgram {
     public class PinAuthentication : Authentication {
+        Credentials actualCredentials;
+
         public Credentials GetEmptyCredentials() {
             return new PinCredentials("");
         }
 
+        public void SetActualCredentials(Credentials credentials) {
+            actualCredentials = credentials;
+        }
+        
         public bool IsValidFor(Credentials credentials) {
-            User user = LookupUserWith(credentials);
-            return credentials.AreMatching(new PinCredentials(user.Pin));
+            return credentials.AreMatching(actualCredentials);
         }
 
         private User LookupUserWith(Credentials credentials) {

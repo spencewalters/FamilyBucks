@@ -11,9 +11,7 @@ namespace FamilyBucksProgram {
             programManager = new FamilyBucksProgramManager();
             InitializeComponent();
 
-
             log.Info($"Program starting {Application.ProductName} {Application.ProductVersion}");
-            Console.WriteLine("logging?");
 
             ApplyDefaults();
             PlayMusic();
@@ -28,10 +26,12 @@ namespace FamilyBucksProgram {
             //   - have ability to control whether PIN is required for all users
             //   - change login to show picture of user, click on user, then prompt for pin if required
 
-            log.Error("test");
-            log.Warn("another test");
-            log.Debug("what");
-            log.Fatal("not good");
+            if (UserCache.AdminCount() == 0) {
+                MessageBox.Show("Setup", 
+                    "There are no administrative users setup.  Please proceed to create one and keep the password or PIN in a safe place.", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
         }
 
         private void ApplyDefaults() {

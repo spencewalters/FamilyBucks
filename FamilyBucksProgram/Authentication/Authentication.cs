@@ -1,7 +1,7 @@
 ﻿namespace FamilyBucksProgram {
     public interface Authentication {
+        void SetUsers(UserRecords _users);
         Credentials GetEmptyCredentials();
-        void SetActualCredentials(Credentials actual);
         bool IsValidFor(Credentials credentials);
     }
 }

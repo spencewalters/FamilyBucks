@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FamilyBucksProgram {
@@ -45,14 +38,17 @@ namespace FamilyBucksProgram {
 
         private void ProcessLoginCredentials() {
             if (String.IsNullOrWhiteSpace(passwordTxt.Text) == false) {
+                string pin = passwordTxt.Text;
 
                 Authentication authentication = new PinAuthentication();
+                authentication.SetUsers(UserCache.Cache);
                 Credentials pinCredentials = authentication.GetEmptyCredentials();
-                pinCredentials.SetField("Pin", passwordTxt.Text);
+                pinCredentials.Secret = pin;
 
                 if (authentication.IsValidFor(pinCredentials)) {
-                    UserDao dao = new UserDao();
-                    LoginUser = dao.LoadUserByPin(pinCredentials.GetField("Pin"));
+                    UserDaoFactory daoFactory = new UserDaoFactory();
+                    UserDao dao = daoFactory.GenerateDao();
+                    LoginUser = UserCache.PINLookup(pin);
                     DialogResult = DialogResult.OK;
                 }
             }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FamilyBucksProgram {
     public interface Credentials {
-        Dictionary<string,string> Fields { get; }
-        void SetField(string field, string value);
-        string GetField(string field);
-        bool AreMatching(Credentials credentials);
+        string Identity { get; set; }
+        string Secret { get; set; }
+        bool Equals(Credentials credentials);
     }
 }

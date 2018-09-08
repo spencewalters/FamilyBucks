@@ -6,24 +6,15 @@ using System.Threading.Tasks;
 
 namespace FamilyBucksProgram {
     public class PinCredentials : Credentials {
-        private Dictionary<string, string> fields = new Dictionary<string, string>();
-        private string PinField = "Pin";
-        public Dictionary<string, string> Fields => throw new NotImplementedException();
+        public string Identity { get; set; }
+        public string Secret { get; set; }
 
         public PinCredentials(string pinValue) {
-            fields.Add(PinField, pinValue);
+            Secret = pinValue;
         }
 
-        public bool AreMatching(Credentials credentials) {            
-            return (fields[PinField] == credentials.GetField(PinField));
-        }
-
-        public string GetField(string field) {
-            return fields[field];
-        }
-
-        public void SetField(string field, string value) {
-            fields[field] = value;
-        }
+        public bool Equals(Credentials credentials) {            
+            return (Secret == credentials.Secret);
+        }        
     }
 }

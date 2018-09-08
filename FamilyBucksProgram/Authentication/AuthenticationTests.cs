@@ -1,37 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using System;
 
 namespace FamilyBucksProgram {
     [TestFixture]
     [Category("Authentication")]
     class AuthenticationTests {
+        public AuthenticationTests() {
+            UserDaoFactory.TestMode = true;
+        }
+
         [Test]
         public void Users_may_authenticate_using_a_PIN() {
-            User actualUser = LoadMockUser("gerald", "password234", "2345");
-            string providedPin = "2345";
-
+            string testPin = "2345";
+            AddMockUserToCache("gerald", "Gerald Kyp",  "password234", testPin);
             Authentication auth = new PinAuthentication();
-            auth.SetActualCredentials(new PinCredentials(actualUser.Pin));
+            auth.SetUsers(UserCache.Cache);
 
             Credentials pinCredentials = auth.GetEmptyCredentials();
-            pinCredentials.SetField("Pin", providedPin);
+            pinCredentials.Secret = testPin;
 
             Assert.True(auth.IsValidFor(pinCredentials), "PINs do not match");
         }
 
-        private User LoadMockUser(string username, string password, string pin) {
-            User user = new User();
-            user.ID = Guid.NewGuid().ToString();
-            user.SetUsername(username);
+        [TestCase("")]
+        [TestCase("abc")]
+        [TestCase("23451")]
+        public void Authentication_fails_on_wrong_PINs(string wrongPin) {
+            string testPin = "2345";
+            AddMockUserToCache("gerald", "Gerald Kyp", "password234", testPin);
+            Authentication auth = new PinAuthentication();
+            auth.SetUsers(UserCache.Cache);
+
+            Credentials pinCredentials = auth.GetEmptyCredentials();
+            pinCredentials.Secret = wrongPin;
+
+            Assert.False(auth.IsValidFor(pinCredentials), "PINs should not match");
+        }
+
+        private void AddMockUserToCache(string username, string fullname, string password, string pin) {
+            UserFactory factory = new UserFactory();
+            User user = factory.GenerateNew(username, fullname, false);
             user.Key = password;
             user.Pin = pin;
 
-            return user;
+            UserRecords records = UserCache.Cache;
+            records.Save(user);
+
+            log.Info($"UserCache.count:{UserCache.Count()}");
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     }
 }

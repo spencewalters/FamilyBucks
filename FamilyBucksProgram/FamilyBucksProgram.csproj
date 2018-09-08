@@ -73,6 +73,7 @@
     <Compile Include="Banking\BankingSystem.cs" />
     <Compile Include="Banking\TransactionHistory.cs" />
     <Compile Include="Banking\TransactionHistoryDao.cs" />
+    <Compile Include="Cache\UserCache.cs" />
     <Compile Include="Chores\Chore.cs" />
     <Compile Include="Chores\ChoreAdapter.cs" />
     <Compile Include="Chores\ChoresCompletion.cs">
@@ -91,6 +92,7 @@
       <DependentUpon>ParentalSignoff.cs</DependentUpon>
     </Compile>
     <Compile Include="Errors\ExceptionHandler.cs" />
+    <Compile Include="Users\UserRecords.cs" />
     <Compile Include="MyCharacter\MyCharacter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +157,11 @@
     <Compile Include="Session\Session.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserDao.cs" />
+    <Compile Include="Users\UserDaoFactory.cs" />
+    <Compile Include="Users\UserDiskDao.cs" />
+    <Compile Include="Users\UserFactory.cs" />
+    <Compile Include="Users\UserMemDao.cs" />
+    <Compile Include="Users\UserTests.cs" />
     <EmbeddedResource Include="About\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

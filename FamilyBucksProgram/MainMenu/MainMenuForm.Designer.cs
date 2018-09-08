@@ -39,6 +39,7 @@
             this.freeBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.myCharacterButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -229,11 +230,23 @@
             this.myCharacterButton.UseVisualStyleBackColor = true;
             this.myCharacterButton.Click += new System.EventHandler(this.myCharacterButton_Click);
             // 
-            // MainMenu
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(266, 217);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(164, 39);
+            this.button2.TabIndex = 17;
+            this.button2.Tag = "session";
+            this.button2.Text = "Administrate";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 452);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.myCharacterButton);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.freeBtn);
@@ -246,7 +259,7 @@
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.titleLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "MainMenu";
+            this.Name = "MainMenuForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Family Bucks Main Menu";
@@ -275,6 +288,7 @@
         private System.Windows.Forms.Button freeBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button myCharacterButton;
+        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -8,10 +8,15 @@ namespace FamilyBucksProgram {
         private string storageFilenamePrefix = "USR";
         private string storageFilenameExtension = "fbf";
 
+        public UserDiskDao() {
+            if (Directory.Exists(storagePath) == false) {
+                Directory.CreateDirectory(storagePath);
+            }
+        }
+
         private string StorageFilePath(string userID) {
             return $"{storagePath}{storageFilenamePrefix}{userID}.{storageFilenameExtension}";
         }
-
 
         public List<User> LoadAll() {
             List<User> users = new List<User>();

@@ -40,6 +40,10 @@ namespace FamilyBucksProgram
             fullname = newFullname;
         }
 
+        internal User Clone() {
+            return (User)MemberwiseClone();
+        }
+
         internal void SetAsAdmin(string isAdminString) {
             isAnAdmin = Boolean.Parse(isAdminString);
         }

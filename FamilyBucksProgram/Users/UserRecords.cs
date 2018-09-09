@@ -16,6 +16,10 @@ namespace FamilyBucksProgram {
             records = new List<User>();
             factory = new UserFactory();
         }
+
+        public List<User> All() {
+            return records;
+        }
         
         public void Refresh() {
             records.Clear();

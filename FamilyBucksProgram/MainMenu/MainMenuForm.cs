@@ -27,11 +27,19 @@ namespace FamilyBucksProgram {
             //   - change login to show picture of user, click on user, then prompt for pin if required
 
             if (UserCache.AdminCount() == 0) {
-                MessageBox.Show("Setup", 
-                    "There are no administrative users setup.  Please proceed to create one and keep the password or PIN in a safe place.", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                User firstTimeUser = CreateFirstTimeUser();
+                BeginSessionFor(firstTimeUser);
 
+                MessageBox.Show("There are no administrative users setup.  Please proceed to create one and keep the password or PIN in a safe place.",
+                    "Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private static User CreateFirstTimeUser() {
+            UserFactory factory = new UserFactory();
+            User firstTimeUser = factory.GenerateNew("Temporary", "Temp Admin", true);
+            firstTimeUser.Pin = "3232";
+            return firstTimeUser;
         }
 
         private void ApplyDefaults() {
@@ -62,16 +70,19 @@ namespace FamilyBucksProgram {
             if (loginForm.ShowDialog() == DialogResult.OK) {
                 User loginUser = loginForm.LoginUser;
                 if (loginUser.IsActive) {
-
-                    programManager.BeginSession(loginUser);
-                    if (programManager.SessionAlive) {
-                        EnableSessionButtons(true);
-                        ShowAccountInfo(true);
-                        loginBtn.Text = "Logout";
-                    }
+                    BeginSessionFor(loginUser);
                 }
                 else
                     MessageBox.Show("Login Failed", "The username or password you provided does not match our records.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BeginSessionFor(User loginUser) {
+            programManager.BeginSession(loginUser);
+            if (programManager.SessionAlive) {
+                EnableSessionButtons(true);
+                ShowAccountInfo(true);
+                loginBtn.Text = "Logout";
             }
         }
 
@@ -241,5 +252,10 @@ namespace FamilyBucksProgram {
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger
         (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        private void button2_Click_1(object sender, EventArgs e) {
+            Administrate form = new Administrate();
+            form.ShowDialog();
+        }
     }
 }

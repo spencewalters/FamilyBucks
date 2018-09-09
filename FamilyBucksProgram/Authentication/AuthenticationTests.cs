@@ -6,7 +6,7 @@ namespace FamilyBucksProgram {
     [Category("Authentication")]
     class AuthenticationTests {
         public AuthenticationTests() {
-            UserDaoFactory.TestMode = true;
+            UserDaoFactory.VolatileMode = true;
         }
 
         [Test]

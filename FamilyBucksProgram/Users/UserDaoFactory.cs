@@ -1,9 +1,9 @@
 ﻿namespace FamilyBucksProgram {
     public class UserDaoFactory {
-        public static bool TestMode = false;
+        public static bool VolatileMode = false;
 
         public UserDao GenerateDao(bool test = false) {
-            if (TestMode)
+            if (VolatileMode)
                 return new UserMemDao();
             else
                 return new UserDiskDao();

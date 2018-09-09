@@ -11,7 +11,7 @@ namespace FamilyBucksProgram {
             user.SetUsername(username);
             user.SetFullname(fullName);
             if (isAdmin)
-                user.SetAsAdmin("1");
+                user.SetAsAdmin("true");
 
             user.Activate();
 
@@ -20,7 +20,6 @@ namespace FamilyBucksProgram {
 
         public User GenerateEmpty() {
             User user = new User();
-            user.Inactivate();
 
             return user;
         }

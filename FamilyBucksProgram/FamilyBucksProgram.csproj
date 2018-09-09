@@ -63,6 +63,18 @@
     <Compile Include="About\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrate\Administrate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\Administrate.Designer.cs">
+      <DependentUpon>Administrate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\EditUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\EditUserForm.Designer.cs">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Authentication\Authentication.cs" />
     <Compile Include="Authentication\AuthenticationTests.cs" />
     <Compile Include="Authentication\Credentials.cs" />
@@ -164,6 +176,12 @@
     <Compile Include="Users\UserTests.cs" />
     <EmbeddedResource Include="About\About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\Administrate.resx">
+      <DependentUpon>Administrate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\EditUserForm.resx">
+      <DependentUpon>EditUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Chores\ChoresCompletion.resx">
       <DependentUpon>ChoresCompletion.cs</DependentUpon>

@@ -21,5 +21,10 @@ namespace FamilyBucksProgram {
         public void Save(User user) {
             userStorage.Add(user);
         }
+
+        public void Delete(string ID) {
+            userStorage.RemoveAll(user => user.ID == ID);
+        }
+
     }
 }

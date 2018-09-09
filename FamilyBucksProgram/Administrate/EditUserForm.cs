@@ -5,7 +5,7 @@ namespace FamilyBucksProgram {
     public partial class EditUserForm : Form {
         private User editUser;
         public User SavedUser;
-        
+
         public EditUserForm(User targetUser) {
             editUser = targetUser;
 
@@ -26,7 +26,6 @@ namespace FamilyBucksProgram {
                 usernameTextbox.ReadOnly = true;
                 nameTextbox.Text = editUser.Fullname;
                 pinTextbox.Text = editUser.Pin;
-                passwordTextbox.Text = editUser.Key;
                 isAdminCheckbox.Checked = editUser.IsAnAdmin;
                 isActiveCheckbox.Checked = editUser.IsActive;
             }
@@ -37,7 +36,7 @@ namespace FamilyBucksProgram {
         }
 
         private void SaveUser() {
-            UserRecords records = UserCache.Cache;
+            UserRecords records = UserCache.Records;
             records.Save(editUser);
             SavedUser = editUser.Clone();
         }
@@ -46,7 +45,6 @@ namespace FamilyBucksProgram {
             editUser.SetUsername(usernameTextbox.Text);
             editUser.SetFullname(nameTextbox.Text);
             editUser.Pin = pinTextbox.Text;
-            editUser.Key = passwordTextbox.Text;
             if (isActiveCheckbox.Checked)
                 editUser.Activate();
             else
@@ -77,31 +75,29 @@ namespace FamilyBucksProgram {
         private void ValidateForm() {
             bool valid = true;
 
-            if (usernameTextbox.Text.Length == 0)
+            if (String.IsNullOrEmpty(usernameTextbox.Text))
                 valid = false;
 
-            if (nameTextbox.Text.Length == 0)
+            if (String.IsNullOrEmpty(nameTextbox.Text))
                 valid = false;
 
-            if (pinTextbox.Text.Length == 0)
+            if (String.IsNullOrEmpty(pinTextbox.Text))
                 valid = false;
 
-            if (passwordTextbox.Text.Length == 0)
-                valid = false;
-
-            if (valid) {
-                saveButton.Enabled = true;
-            }
+            saveButton.Enabled = valid;
         }
 
         private void saveButton_Click(object sender, EventArgs e) {
             saveButton.Enabled = false;
             ApplyFormToUser();
-            SaveUser();            
+            SaveUser();
         }
 
         private void cancelButton_Click(object sender, EventArgs e) {
             DialogResult = DialogResult.Cancel;
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     }
 }

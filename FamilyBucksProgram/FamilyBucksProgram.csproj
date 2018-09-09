@@ -244,6 +244,7 @@
     <None Include="Resources\standing-up-man-.png" />
     <None Include="Resources\fields.png" />
     <None Include="Resources\home.png" />
+    <None Include="Resources\user.png" />
     <Content Include="Resources\Victory.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

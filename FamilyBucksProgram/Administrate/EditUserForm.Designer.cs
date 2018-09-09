@@ -26,9 +26,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextbox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pinTextbox = new System.Windows.Forms.TextBox();
-            this.passwordTextbox = new System.Windows.Forms.TextBox();
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.isAdminCheckbox = new System.Windows.Forms.CheckBox();
@@ -51,7 +49,7 @@
             this.nameTextbox.Location = new System.Drawing.Point(117, 38);
             this.nameTextbox.Name = "nameTextbox";
             this.nameTextbox.Size = new System.Drawing.Size(122, 20);
-            this.nameTextbox.TabIndex = 1;
+            this.nameTextbox.TabIndex = 2;
             this.nameTextbox.TextChanged += new System.EventHandler(this.nameTextbox_TextChanged);
             // 
             // label2
@@ -63,30 +61,13 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "PIN";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 95);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Password";
-            // 
             // pinTextbox
             // 
             this.pinTextbox.Location = new System.Drawing.Point(117, 64);
             this.pinTextbox.Name = "pinTextbox";
             this.pinTextbox.Size = new System.Drawing.Size(122, 20);
-            this.pinTextbox.TabIndex = 4;
+            this.pinTextbox.TabIndex = 3;
             this.pinTextbox.TextChanged += new System.EventHandler(this.pinTextbox_TextChanged);
-            // 
-            // passwordTextbox
-            // 
-            this.passwordTextbox.Location = new System.Drawing.Point(117, 92);
-            this.passwordTextbox.Name = "passwordTextbox";
-            this.passwordTextbox.Size = new System.Drawing.Size(122, 20);
-            this.passwordTextbox.TabIndex = 5;
-            this.passwordTextbox.TextChanged += new System.EventHandler(this.passwordTextbox_TextChanged);
             // 
             // cancelButton
             // 
@@ -94,7 +75,7 @@
             this.cancelButton.Location = new System.Drawing.Point(213, 221);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 52);
-            this.cancelButton.TabIndex = 6;
+            this.cancelButton.TabIndex = 15;
             this.cancelButton.Text = "Close";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
@@ -106,7 +87,7 @@
             this.saveButton.Location = new System.Drawing.Point(132, 221);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 52);
-            this.saveButton.TabIndex = 7;
+            this.saveButton.TabIndex = 12;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
@@ -138,7 +119,7 @@
             this.usernameTextbox.Location = new System.Drawing.Point(117, 12);
             this.usernameTextbox.Name = "usernameTextbox";
             this.usernameTextbox.Size = new System.Drawing.Size(122, 20);
-            this.usernameTextbox.TabIndex = 11;
+            this.usernameTextbox.TabIndex = 1;
             // 
             // usernameLabel
             // 
@@ -160,9 +141,7 @@
             this.Controls.Add(this.isAdminCheckbox);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.pinTextbox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nameTextbox);
             this.Controls.Add(this.label1);
@@ -184,9 +163,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nameTextbox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox pinTextbox;
-        private System.Windows.Forms.TextBox passwordTextbox;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.CheckBox isAdminCheckbox;

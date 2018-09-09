@@ -7,6 +7,12 @@ namespace FamilyBucksProgram {
         private string storageFilenamePrefix = "ACCT";
         private string storageFilenameExtension = "fbf";
 
+        public AccountDao() {
+            if (Directory.Exists(storagePath) == false) {
+                Directory.CreateDirectory(storagePath);
+            }
+        }
+
         private string StorageFilePath(string ID) {
             return $"{storagePath}{storageFilenamePrefix}{ID}.{storageFilenameExtension}";
         }

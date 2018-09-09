@@ -14,7 +14,7 @@ namespace FamilyBucksProgram {
             string testPin = "2345";
             AddMockUserToCache("gerald", "Gerald Kyp",  "password234", testPin);
             Authentication auth = new PinAuthentication();
-            auth.SetUsers(UserCache.Cache);
+            auth.SetUsers(UserCache.Records);
 
             Credentials pinCredentials = auth.GetEmptyCredentials();
             pinCredentials.Secret = testPin;
@@ -29,7 +29,7 @@ namespace FamilyBucksProgram {
             string testPin = "2345";
             AddMockUserToCache("gerald", "Gerald Kyp", "password234", testPin);
             Authentication auth = new PinAuthentication();
-            auth.SetUsers(UserCache.Cache);
+            auth.SetUsers(UserCache.Records);
 
             Credentials pinCredentials = auth.GetEmptyCredentials();
             pinCredentials.Secret = wrongPin;
@@ -43,7 +43,7 @@ namespace FamilyBucksProgram {
             user.Key = password;
             user.Pin = pin;
 
-            UserRecords records = UserCache.Cache;
+            UserRecords records = UserCache.Records;
             records.Save(user);
 
             log.Info($"UserCache.count:{UserCache.Count()}");

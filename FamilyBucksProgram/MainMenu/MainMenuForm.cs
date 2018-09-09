@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Media;
 using System.Windows.Forms;
 
@@ -30,8 +31,10 @@ namespace FamilyBucksProgram {
                 User firstTimeUser = CreateFirstTimeUser();
                 BeginSessionFor(firstTimeUser);
 
-                MessageBox.Show("There are no administrative users setup.  Please proceed to create one and keep the password or PIN in a safe place.",
+                MessageBox.Show("There are no administrative users.  Please proceed to create one and keep the password or PIN in a safe place.",
                     "Setup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                OpenAdminForm();
             }
         }
 
@@ -43,7 +46,7 @@ namespace FamilyBucksProgram {
         }
 
         private void ApplyDefaults() {
-            EnableSessionButtons(false);
+            ResetSessionButtons();
             ShowAccountInfo(false);
         }
 
@@ -60,7 +63,7 @@ namespace FamilyBucksProgram {
 
         private void LogoutAction() {
             programManager.EndSession();
-            EnableSessionButtons(false);
+            ResetSessionButtons();
             ShowAccountInfo(false);
             loginBtn.Text = "Login";
         }
@@ -80,10 +83,21 @@ namespace FamilyBucksProgram {
         private void BeginSessionFor(User loginUser) {
             programManager.BeginSession(loginUser);
             if (programManager.SessionAlive) {
-                EnableSessionButtons(true);
+                EnableButtonsForUser(loginUser);
                 ShowAccountInfo(true);
                 loginBtn.Text = "Logout";
             }
+        }
+
+        private void EnableButtonsForUser(User user) {
+            if (user.IsAnAdmin)
+                ToggleButtons(true, new List<string>() { "session", "admin" });
+            else
+                ToggleButtons(true, new List<string>() { "session" });
+        }
+
+        private void ResetSessionButtons() {
+            ToggleButtons(false, new List<string>() { "session", "admin" });
         }
 
         private void ShowAccountInfo(bool show) {
@@ -103,22 +117,26 @@ namespace FamilyBucksProgram {
             }
         }
 
-        private void EnableSessionButtons(bool enable) {
+        private void ToggleButtons(bool enable, List<string> buttonTypes) {
             foreach (Control control in Controls) {
                 if (control.GetType() == typeof(Button)) {
                     Button button = (Button)control;
-                    SetButtonAsEnabled(enable, button);
+                    if (buttonMatchesTypes(button, buttonTypes))
+                        button.Enabled = enable;
                 }
             }
         }
 
-        private static void SetButtonAsEnabled(bool enable, Button button) {
+        private bool buttonMatchesTypes(Button button, List<string> buttonTypes) {
+            bool matches = false;
             string buttonTag = (string)button.Tag;
             if (String.IsNullOrEmpty(buttonTag) == false) {
-                if (buttonTag == "session")
-                    button.Enabled = enable;
+                if (buttonTypes.Contains(buttonTag))
+                    matches = true;
             }
+            return matches;
         }
+
 
         private void RunProgram(FamilyBucksProgram program) {
             BankTransaction resultTransaction = BankTransaction.Empty;
@@ -250,12 +268,17 @@ namespace FamilyBucksProgram {
             myCharactor.ShowDialog();
         }
 
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
-        (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
         private void button2_Click_1(object sender, EventArgs e) {
+            OpenAdminForm();
+        }
+
+        private static void OpenAdminForm() {
             Administrate form = new Administrate();
             form.ShowDialog();
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+        (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     }
 }

@@ -11,6 +11,12 @@ namespace FamilyBucksProgram {
             return $"{storagePath}{storageFilenamePrefix}{ID}.{storageFilenameExtension}";
         }
 
+        public TransactionHistoryDao() {
+            if (Directory.Exists(storagePath) == false) {
+                Directory.CreateDirectory(storagePath);
+            }
+        }
+
         public void Save(TransactionHistory history) {
             string filename = StorageFilePath(history.Key);
             StreamWriter file = new StreamWriter(filename);

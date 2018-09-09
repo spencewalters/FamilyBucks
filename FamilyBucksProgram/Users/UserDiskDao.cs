@@ -47,12 +47,20 @@ namespace FamilyBucksProgram {
 
                 file.Close();
 
-                Console.WriteLine($"Loaded user details for {user.Fullname}");
+                log.Info($"Loaded user details for {user.Fullname}");
             }
             else
-                Console.WriteLine("No profile on file at path: " + userFile);
+                log.Warn("No profile on file at path: " + userFile);
 
             return user;
+        }
+
+        public void Delete(string userID) {
+            string userFile = StorageFilePath(userID);
+            if (File.Exists(userFile)) {
+                File.Delete(userFile);
+                log.Info($"Deleted {userFile}");
+            }
         }
 
         public void Save(User user) {
@@ -65,5 +73,8 @@ namespace FamilyBucksProgram {
             file.WriteLine(user.IsAnAdmin.ToString());
             file.Close();
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
     }
 }

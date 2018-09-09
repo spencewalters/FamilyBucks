@@ -7,6 +7,11 @@ namespace FamilyBucksProgram {
         private string storageFilenamePrefix = "PLHST";
         private string storageFilenameExtension = "fbf";
 
+        public PlayHistoryDao() {
+            if (Directory.Exists(storagePath) == false) {
+                Directory.CreateDirectory(storagePath);
+            }
+        }
         private string StorageFilePath(string ID) {
             return $"{storagePath}{storageFilenamePrefix}{ID}.{storageFilenameExtension}";
         }

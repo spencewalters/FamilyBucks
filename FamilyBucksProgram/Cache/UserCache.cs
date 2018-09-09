@@ -2,37 +2,37 @@
 
 namespace FamilyBucksProgram {
     public static class UserCache {
-        private static UserRecords cache = new UserRecords();
+        private static UserRecords cachedRecords = new UserRecords();
 
-        public static UserRecords Cache{ get=> GetCache(); }
+        public static UserRecords Records{ get=> GetRecords(); }
 
         private static void InitializeCache() {
-            if (cache.Count == 0)
+            if (cachedRecords.Count == 0)
                 Refresh();
         }
 
         private static void Refresh() {            
-            cache.Refresh();
+            cachedRecords.Refresh();
         }
 
-        private static UserRecords GetCache() {
+        private static UserRecords GetRecords() {
             InitializeCache();
-            return cache;
+            return cachedRecords;
         }
 
         public static User PINLookup(string pin) {
             InitializeCache();
-            return cache.PINLookup(pin);
+            return cachedRecords.PINLookup(pin);
         }
 
         public static int Count() {
             InitializeCache();
-            return cache.Count;
+            return cachedRecords.Count;
         }
 
         public static int AdminCount() {
             InitializeCache();
-            return cache.AdminCount;
+            return cachedRecords.AdminCount;
         }
 
     }

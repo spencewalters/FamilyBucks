@@ -41,7 +41,7 @@ namespace FamilyBucksProgram {
                 string pin = passwordTxt.Text;
 
                 Authentication authentication = new PinAuthentication();
-                authentication.SetUsers(UserCache.Cache);
+                authentication.SetUsers(UserCache.Records);
                 Credentials pinCredentials = authentication.GetEmptyCredentials();
                 pinCredentials.Secret = pin;
 

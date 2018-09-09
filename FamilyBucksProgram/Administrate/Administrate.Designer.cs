@@ -39,6 +39,8 @@
             this.usersListview.TabIndex = 0;
             this.usersListview.UseCompatibleStateImageBehavior = false;
             this.usersListview.View = System.Windows.Forms.View.Tile;
+            this.usersListview.SelectedIndexChanged += new System.EventHandler(this.usersListview_SelectedIndexChanged);
+            this.usersListview.DoubleClick += new System.EventHandler(this.usersListview_DoubleClick);
             // 
             // usersLabel
             // 
@@ -77,6 +79,7 @@
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // closeButton
             // 

@@ -13,10 +13,7 @@ namespace FamilyBucksProgram {
         }
 
         public bool IsValidFor(Credentials credentials) {
-            log.Info("cred.secret: " + credentials.Secret);
-            log.Info("users count: " + users.Count);
             User lookup = users.PINLookup(credentials.Secret);
-            log.Info("looked up user: " + lookup.Fullname);
             return lookup.IsActive;
         }
 

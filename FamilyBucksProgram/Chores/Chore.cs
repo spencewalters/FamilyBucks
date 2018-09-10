@@ -5,5 +5,6 @@
         string Description { get; }
         double Value { get; }
         void SetKey(string key);
+        Chore Clone();
     }
 }

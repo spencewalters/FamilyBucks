@@ -1,5 +1,5 @@
 ﻿namespace FamilyBucksProgram {
-    partial class Administrate {
+    partial class AdministrateUsersForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -92,7 +92,7 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // Administrate
+            // AdministrateUsersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -106,11 +106,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Administrate";
+            this.Name = "AdministrateUsersForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Administrate";
+            this.Text = "Administrate Users";
             this.ResumeLayout(false);
             this.PerformLayout();
 

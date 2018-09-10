@@ -63,11 +63,41 @@
     <Compile Include="About\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrate\Administrate.cs">
+    <Compile Include="Administrate\AdministrateChoresForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrate\Administrate.Designer.cs">
-      <DependentUpon>Administrate.cs</DependentUpon>
+    <Compile Include="Administrate\AdministrateChoresForm.Designer.cs">
+      <DependentUpon>AdministrateChoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\AdministrateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\AdministrateForm.Designer.cs">
+      <DependentUpon>AdministrateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\AdministrateRewardsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\AdministrateRewardsForm.Designer.cs">
+      <DependentUpon>AdministrateRewardsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\AdministrateUsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\AdministrateUsersForm.Designer.cs">
+      <DependentUpon>AdministrateUsersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\EditChoreForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\EditChoreForm.Designer.cs">
+      <DependentUpon>EditChoreForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrate\EditRewardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrate\EditRewardForm.Designer.cs">
+      <DependentUpon>EditRewardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrate\EditUserForm.cs">
       <SubType>Form</SubType>
@@ -88,6 +118,7 @@
     <Compile Include="Cache\UserCache.cs" />
     <Compile Include="Chores\Chore.cs" />
     <Compile Include="Chores\ChoreAdapter.cs" />
+    <Compile Include="Chores\ChoreFactory.cs" />
     <Compile Include="Chores\ChoresCompletion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +127,7 @@
     </Compile>
     <Compile Include="Chores\ChoresCompletionProgram.cs" />
     <Compile Include="Chores\ChoresDao.cs" />
+    <Compile Include="Chores\EmptyChore.cs" />
     <Compile Include="Chores\FamilyChore.cs" />
     <Compile Include="Chores\ParentalSignoff.cs">
       <SubType>Form</SubType>
@@ -177,8 +209,23 @@
     <EmbeddedResource Include="About\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrate\Administrate.resx">
-      <DependentUpon>Administrate.cs</DependentUpon>
+    <EmbeddedResource Include="Administrate\AdministrateChoresForm.resx">
+      <DependentUpon>AdministrateChoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\AdministrateForm.resx">
+      <DependentUpon>AdministrateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\AdministrateRewardsForm.resx">
+      <DependentUpon>AdministrateRewardsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\AdministrateUsersForm.resx">
+      <DependentUpon>AdministrateUsersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\EditChoreForm.resx">
+      <DependentUpon>EditChoreForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrate\EditRewardForm.resx">
+      <DependentUpon>EditRewardForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrate\EditUserForm.resx">
       <DependentUpon>EditUserForm.cs</DependentUpon>

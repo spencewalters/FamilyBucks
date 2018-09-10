@@ -99,5 +99,9 @@ namespace FamilyBucksProgram {
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger
 (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e) {
+            ValidateForm();
+        }
     }
 }

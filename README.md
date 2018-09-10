@@ -3,15 +3,14 @@ Getting those kids to do the chores!
 
 It's a work in progress.
 
-What's fundamentally working as of 5/27/2018:
- - Login
+Working features:
+
  - Math program (subtraction/addition)
  - Free Family Buck
- - Chores Program (75% ready)
+ - Chores
 
 To-do:
-(x) Add logging
-* Add unit testing
+
 * Game configuration - set math parameters (difficulty)
 * Admin menu
 	-> Chores (Add/Edit/Remove)
@@ -19,11 +18,7 @@ To-do:
 	-> Programs(Add/Edit/Remove)
 		What appears in the menu
 		- set limits
-	-> Users(Add/Edit/Remove)
-		set as Admin or not
-* Replace Register button with 1-time "Initial Setup"
-	-> Create folders
-	-> Add administrator	
+
 * User preferences
 	- Set theme song
 	- Set customized avatar
@@ -33,3 +28,15 @@ To-do:
 * Add MSMQ or some other messaging
 	- Allow remote admin of another installation
 		- Update chores, rewards, program configurations remotely
+
+		
+Done:
+	Add logging
+	Add unit testing
+	Replace Register button with 1-time "Initial Setup"
+		-> Create folders
+		-> Add administrator	
+		
+	Admin
+		-> Users(Add/Edit/Remove)	
+		+ set as Admin or not

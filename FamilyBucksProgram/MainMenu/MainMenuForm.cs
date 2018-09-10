@@ -268,12 +268,17 @@ namespace FamilyBucksProgram {
             myCharactor.ShowDialog();
         }
 
-        private void button2_Click_1(object sender, EventArgs e) {
+        private void administrateClick(object sender, EventArgs e) {
             OpenAdminForm();
         }
 
+        private static void OpenAdminUserForm() {
+            AdministrateUsersForm form = new AdministrateUsersForm();
+            form.ShowDialog();
+        }
+
         private static void OpenAdminForm() {
-            Administrate form = new Administrate();
+            AdministrateForm form = new AdministrateForm();
             form.ShowDialog();
         }
 

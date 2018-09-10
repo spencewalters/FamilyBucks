@@ -1,6 +1,6 @@
 ﻿namespace FamilyBucksProgram
 {
-    enum GeneralState
+    public enum GeneralState
     {
         EMPTY, INACTIVE, ACTIVE
     }

@@ -9,8 +9,30 @@ namespace FamilyBucksProgram {
         private Type UseType = typeof(FamilyChore);
         private string storageFilenamePrefix = "CHR";
         private string storageFilenameExtension = "fbf";
+        private ChoreFactory factory = new ChoreFactory();
+
         private string StorageFilePath() {
             return $"{storagePath}{storageFilenamePrefix}{UseType.Name}.{storageFilenameExtension}";
+        }
+
+        public ChoresDao() {
+            if (Directory.Exists(storagePath) == false) {
+                Directory.CreateDirectory(storagePath);
+            }
+        }
+
+        public void Save(Chore chore) {
+            List<Chore> list = Load();
+            List<Chore> newList = new List<Chore>();
+
+            newList.Add(chore);
+            foreach(Chore entry in list) {
+                if (entry.Key != chore.Key) {
+                    newList.Add(entry);
+                }
+            }
+
+            Save(newList);
         }
 
         public void Save(List<Chore> chores) {
@@ -50,12 +72,9 @@ namespace FamilyBucksProgram {
             return list;
         }
 
-        private Chore EmptyChore() {
-            return new FamilyChore();
-        }
-
         private Chore ParseEntry(string entry) {
-            Chore chore = EmptyChore();
+            Chore chore = factory.GenerateEmpty();
+
             string[] fields = entry.Split(',');
             if (fields.Length >= 4) {
                 string key = fields[0].Trim();
@@ -66,7 +85,20 @@ namespace FamilyBucksProgram {
                 chore = new FamilyChore(name, value, description);
                 chore.SetKey(key);
             }
+
             return chore;
+        }
+
+        public void Delete(string key) {
+            List<Chore> list = Load();
+            List<Chore> newList = new List<Chore>();
+            foreach(Chore chore in list) {
+                if (chore.Key != key) {
+                    newList.Add(chore);
+                }
+            }
+
+            Save(newList);
         }
 
         private static void WriteEntry(Chore chore, StreamWriter file) {

@@ -7,6 +7,7 @@ namespace FamilyBucksProgram {
         public string Name { get; set; }
         public string Description { get; set; }
         public double Value { get; set; }
+        public GeneralState State { get=>state; }
 
         public void SetKey(string key) { Key = key; }
         private GeneralState state = GeneralState.EMPTY;
@@ -26,6 +27,10 @@ namespace FamilyBucksProgram {
             Value = value;
 
             Activate();
+        }
+
+        public Chore Clone() {
+            return (Chore)MemberwiseClone();
         }
     }
 }

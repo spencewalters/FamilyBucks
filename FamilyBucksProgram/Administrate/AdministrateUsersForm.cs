@@ -3,10 +3,10 @@ using System.Drawing;
 using System.Windows.Forms;
 
 namespace FamilyBucksProgram {
-    public partial class Administrate : Form {
+    public partial class AdministrateUsersForm : Form {
         private string defaultImageKey = "default_user_image";
 
-        public Administrate() {
+        public AdministrateUsersForm() {
             InitializeComponent();
 
             SetupListViewImages();
@@ -61,7 +61,6 @@ namespace FamilyBucksProgram {
                 UserFactory factory = new UserFactory();
                 EditUserForm form = new EditUserForm(user);
                 form.ShowDialog();
-
 
                 if (form.SavedUser.IsEmpty == false) {
                     UpdateUserInView(form.SavedUser);

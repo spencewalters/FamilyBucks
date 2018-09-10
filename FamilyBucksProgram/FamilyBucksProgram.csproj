@@ -136,6 +136,7 @@
       <DependentUpon>ParentalSignoff.cs</DependentUpon>
     </Compile>
     <Compile Include="Errors\ExceptionHandler.cs" />
+    <Compile Include="Helpers\FolderHelper.cs" />
     <Compile Include="Users\UserRecords.cs" />
     <Compile Include="MyCharacter\MyCharacter.cs">
       <SubType>Form</SubType>

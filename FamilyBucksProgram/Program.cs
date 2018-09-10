@@ -13,6 +13,9 @@ namespace FamilyBucksProgram {
         /// </summary>
         [STAThread]
         static void Main() {
+
+            FolderHelper.CreateProjectFolders();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainMenuForm());

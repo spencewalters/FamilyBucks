@@ -4,17 +4,11 @@ using System.Text;
 
 namespace FamilyBucksProgram {
     public class TransactionHistoryDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}BankAccount\\History\\";
+        private string storagePath = FolderHelper.bankaccountHistoryPath;
         private string storageFilenamePrefix = "TXHST";
         private string storageFilenameExtension = "fbf";
         private string StorageFilePath(string ID) {
             return $"{storagePath}{storageFilenamePrefix}{ID}.{storageFilenameExtension}";
-        }
-
-        public TransactionHistoryDao() {
-            if (Directory.Exists(storagePath) == false) {
-                Directory.CreateDirectory(storagePath);
-            }
         }
 
         public void Save(TransactionHistory history) {

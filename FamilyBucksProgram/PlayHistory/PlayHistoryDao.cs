@@ -3,7 +3,7 @@ using System.IO;
 
 namespace FamilyBucksProgram {
     public class PlayHistoryDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}History\\";
+        private string storagePath = FolderHelper.playHistoryPath;
         private string storageFilenamePrefix = "PLHST";
         private string storageFilenameExtension = "fbf";
 

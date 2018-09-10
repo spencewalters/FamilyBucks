@@ -3,15 +3,9 @@ using System.IO;
 
 namespace FamilyBucksProgram {
     public class AccountDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}BankAccount\\";
+        private string storagePath = FolderHelper.bankaccountPath;
         private string storageFilenamePrefix = "ACCT";
         private string storageFilenameExtension = "fbf";
-
-        public AccountDao() {
-            if (Directory.Exists(storagePath) == false) {
-                Directory.CreateDirectory(storagePath);
-            }
-        }
 
         private string StorageFilePath(string ID) {
             return $"{storagePath}{storageFilenamePrefix}{ID}.{storageFilenameExtension}";

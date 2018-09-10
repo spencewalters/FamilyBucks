@@ -4,7 +4,7 @@ using System.IO;
 
 namespace FamilyBucksProgram {
     public class UserDiskDao : UserDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}Users\\";
+        private string storagePath = FolderHelper.userPath;
         private string storageFilenamePrefix = "USR";
         private string storageFilenameExtension = "fbf";
 

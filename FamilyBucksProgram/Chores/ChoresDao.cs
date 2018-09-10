@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FamilyBucksProgram {
     public class ChoresDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}Chores\\";
+        private string storagePath = FolderHelper.choresPath;
         private Type UseType = typeof(FamilyChore);
         private string storageFilenamePrefix = "CHR";
         private string storageFilenameExtension = "fbf";

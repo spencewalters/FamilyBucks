@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FamilyBucksProgram {
     public class RewardDao {
-        private string storagePath = $"{AppDomain.CurrentDomain.BaseDirectory}Rewards\\";
+        private string storagePath = FolderHelper.rewardsPath;
         private Type UseType = typeof(InGameReward);
         private string storageFilenamePrefix = "RWD";
         private string storageFilenameExtension = "fbf";

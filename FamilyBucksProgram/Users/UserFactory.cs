@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamilyBucksProgram {
     public class UserFactory {
-        public User GenerateNew(string username, string fullName, bool isAdmin) {
+        public User Generate(string username, string fullName, bool isAdmin) {
             User user = new User();
             user.SetUsername(username);
             user.SetFullname(fullName);
@@ -18,10 +18,7 @@ namespace FamilyBucksProgram {
             return user;
         }
 
-        public User GenerateEmpty() {
-            User user = new User();
-
-            return user;
-        }
+        public static User Empty { get => new User();
     }
+}
 }

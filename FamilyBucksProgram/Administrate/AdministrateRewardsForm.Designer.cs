@@ -27,8 +27,10 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.rewardsLabel = new System.Windows.Forms.Label();
             this.rewardsListview = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // closeButton
@@ -50,6 +52,7 @@
             this.deleteButton.TabIndex = 14;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -59,6 +62,7 @@
             this.editButton.TabIndex = 13;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // addButton
             // 
@@ -68,24 +72,37 @@
             this.addButton.TabIndex = 12;
             this.addButton.Text = "Add";
             this.addButton.UseVisualStyleBackColor = true;
-            // 
-            // rewardsLabel
-            // 
-            this.rewardsLabel.AutoSize = true;
-            this.rewardsLabel.Location = new System.Drawing.Point(9, 19);
-            this.rewardsLabel.Name = "rewardsLabel";
-            this.rewardsLabel.Size = new System.Drawing.Size(49, 13);
-            this.rewardsLabel.TabIndex = 11;
-            this.rewardsLabel.Text = "Rewards";
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // rewardsListview
             // 
-            this.rewardsListview.Location = new System.Drawing.Point(12, 35);
+            this.rewardsListview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.rewardsListview.FullRowSelect = true;
+            this.rewardsListview.Location = new System.Drawing.Point(12, 12);
             this.rewardsListview.Name = "rewardsListview";
-            this.rewardsListview.Size = new System.Drawing.Size(341, 161);
+            this.rewardsListview.Size = new System.Drawing.Size(341, 184);
             this.rewardsListview.TabIndex = 10;
             this.rewardsListview.UseCompatibleStateImageBehavior = false;
-            this.rewardsListview.View = System.Windows.Forms.View.Tile;
+            this.rewardsListview.View = System.Windows.Forms.View.Details;
+            this.rewardsListview.SelectedIndexChanged += new System.EventHandler(this.rewardsListview_SelectedIndexChanged);
+            this.rewardsListview.DoubleClick += new System.EventHandler(this.rewardsListview_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Reward";
+            this.columnHeader1.Width = 125;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Price";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Description";
+            this.columnHeader3.Width = 145;
             // 
             // AdministrateRewardsForm
             // 
@@ -95,7 +112,6 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.rewardsLabel);
             this.Controls.Add(this.rewardsListview);
             this.Controls.Add(this.closeButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -107,7 +123,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Administrate Rewards";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -117,7 +132,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Label rewardsLabel;
         private System.Windows.Forms.ListView rewardsListview;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

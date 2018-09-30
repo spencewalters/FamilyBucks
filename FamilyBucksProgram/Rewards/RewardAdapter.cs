@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace FamilyBucksProgram {
@@ -11,11 +12,8 @@ namespace FamilyBucksProgram {
 
         public ListViewItem ToListViewItem() {
             ListViewItem lvItem = new ListViewItem();
-            lvItem.Tag = _reward;
-            lvItem.Name = _reward.Key;
-            lvItem.Text = _reward.Name;
-            ListViewItem.ListViewSubItem subItem = lvItem.SubItems.Add(new ListViewItem.ListViewSubItem());
-            subItem.Text = $"{_reward.Price.ToString("C", new CultureInfo("en-us")) }";
+            ConvertTo(lvItem);
+
             return lvItem;
         }
 
@@ -23,6 +21,22 @@ namespace FamilyBucksProgram {
             Reward reward = (Reward)lvItem.Tag;
 
             return reward;
+        }
+
+        private void ConvertTo(ListViewItem lvItem) {
+            lvItem.Tag = _reward;
+            lvItem.Name = _reward.Key;
+            lvItem.Text = _reward.Name;
+
+            ListViewItem.ListViewSubItem subItem = lvItem.SubItems.Add(new ListViewItem.ListViewSubItem());
+            subItem.Text = $"{_reward.Price.ToString("C", new CultureInfo("en-us")) }";
+
+            ListViewItem.ListViewSubItem subItem2 = lvItem.SubItems.Add(new ListViewItem.ListViewSubItem());
+            subItem2.Text = $"{_reward.Description}";
+        }
+
+        internal void Update(ListViewItem existing) {
+            ConvertTo(existing);
         }
     }
 }

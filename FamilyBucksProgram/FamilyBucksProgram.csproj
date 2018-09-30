@@ -137,6 +137,13 @@
     </Compile>
     <Compile Include="Errors\ExceptionHandler.cs" />
     <Compile Include="Helpers\FolderHelper.cs" />
+    <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="ProgramManager\AccountInformationLoggable.cs" />
+    <Compile Include="Rewards\EmptyReward.cs" />
+    <Compile Include="Rewards\LoggableReward.cs" />
+    <Compile Include="Rewards\RewardFactory.cs" />
+    <Compile Include="Rewards\RewardTests.cs" />
+    <Compile Include="Users\UserLoggable.cs" />
     <Compile Include="Users\UserRecords.cs" />
     <Compile Include="MyCharacter\MyCharacter.cs">
       <SubType>Form</SubType>

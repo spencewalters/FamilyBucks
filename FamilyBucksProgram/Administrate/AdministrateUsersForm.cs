@@ -33,7 +33,7 @@ namespace FamilyBucksProgram {
 
         private void addButton_Click(object sender, EventArgs e) {
             UserFactory factory = new UserFactory();
-            EditUserForm form = new EditUserForm(factory.GenerateEmpty());
+            EditUserForm form = new EditUserForm(UserFactory.Empty);
             form.ShowDialog();
 
             if (form.SavedUser.IsEmpty == false) {

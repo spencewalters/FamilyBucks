@@ -40,7 +40,7 @@ namespace FamilyBucksProgram {
 
         private static User CreateFirstTimeUser() {
             UserFactory factory = new UserFactory();
-            User firstTimeUser = factory.GenerateNew("Temporary", "Temp Admin", true);
+            User firstTimeUser = factory.Generate("Temporary", "Temp Admin", true);
             firstTimeUser.Pin = "3232";
             return firstTimeUser;
         }

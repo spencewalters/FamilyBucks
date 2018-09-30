@@ -27,8 +27,10 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.choresLabel = new System.Windows.Forms.Label();
             this.choresListview = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // closeButton
@@ -72,25 +74,35 @@
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // choresLabel
-            // 
-            this.choresLabel.AutoSize = true;
-            this.choresLabel.Location = new System.Drawing.Point(9, 16);
-            this.choresLabel.Name = "choresLabel";
-            this.choresLabel.Size = new System.Drawing.Size(40, 13);
-            this.choresLabel.TabIndex = 6;
-            this.choresLabel.Text = "Chores";
-            // 
             // choresListview
             // 
-            this.choresListview.Location = new System.Drawing.Point(12, 32);
+            this.choresListview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.choresListview.FullRowSelect = true;
+            this.choresListview.Location = new System.Drawing.Point(12, 12);
             this.choresListview.Name = "choresListview";
-            this.choresListview.Size = new System.Drawing.Size(341, 161);
+            this.choresListview.Size = new System.Drawing.Size(341, 181);
             this.choresListview.TabIndex = 5;
             this.choresListview.UseCompatibleStateImageBehavior = false;
-            this.choresListview.View = System.Windows.Forms.View.Tile;
+            this.choresListview.View = System.Windows.Forms.View.Details;
             this.choresListview.SelectedIndexChanged += new System.EventHandler(this.choresListview_SelectedIndexChanged);
             this.choresListview.DoubleClick += new System.EventHandler(this.choresListview_DoubleClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Chore";
+            this.columnHeader1.Width = 120;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Value";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Description";
+            this.columnHeader3.Width = 149;
             // 
             // AdministrateChoresForm
             // 
@@ -100,7 +112,6 @@
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.choresLabel);
             this.Controls.Add(this.choresListview);
             this.Controls.Add(this.closeButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -112,7 +123,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Administrate Chores";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -122,7 +132,9 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.Label choresLabel;
         private System.Windows.Forms.ListView choresListview;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }

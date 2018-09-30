@@ -10,5 +10,6 @@ namespace FamilyBucksProgram {
         string Description { get;  }
         double Price { get; }
         void SetKey(string key);
+        Reward Clone();
     }
 }

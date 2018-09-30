@@ -27,5 +27,9 @@ namespace FamilyBucksProgram {
 
             Activate();
         }
+
+        public Reward Clone() {
+            return (Reward)MemberwiseClone();
+        }
     }
 }

@@ -34,10 +34,8 @@ namespace FamilyBucksProgram {
         }
 
         private void AddChoreToView(Chore chore) {
-            ListViewItem listviewItem = new ListViewItem(chore.Description);
-            listviewItem.Name = chore.Key;
-            listviewItem.Tag = chore;
-            choresListview.Items.Add(listviewItem);
+            ChoreAdapter adapter = new ChoreAdapter(chore);
+            choresListview.Items.Add(adapter.ToListViewItem());
         }
 
         private void closeButton_Click(object sender, EventArgs e) {
@@ -45,7 +43,9 @@ namespace FamilyBucksProgram {
         }
 
         private void addButton_Click(object sender, EventArgs e) {
-            EditChoreForm form = new EditChoreForm(new FamilyChore());
+            ChoreFactory factory = new ChoreFactory();
+            Chore newChore = factory.Generate("", "", 0.50);
+            EditChoreForm form = new EditChoreForm(newChore);
             form.ShowDialog();
 
             if (form.SavedChore.IsEmpty == false) {
@@ -85,8 +85,10 @@ namespace FamilyBucksProgram {
         }
 
         private void UpdateChoreInView(Chore savedChore) {
-            Chore existingChore = (Chore)choresListview.Items[savedChore.Key].Tag;
-            existingChore = savedChore;
+            
+            ListViewItem listviewitem = choresListview.Items[savedChore.Key];
+            ChoreAdapter adapter = new ChoreAdapter(savedChore);
+            adapter.Update(listviewitem);
         }
 
         private void choresListview_SelectedIndexChanged(object sender, EventArgs e) {

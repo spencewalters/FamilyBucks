@@ -39,7 +39,7 @@ namespace FamilyBucksProgram {
 
         private void AddMockUserToCache(string username, string fullname, string password, string pin) {
             UserFactory factory = new UserFactory();
-            User user = factory.GenerateNew(username, fullname, false);
+            User user = factory.Generate(username, fullname, false);
             user.Key = password;
             user.Pin = pin;
 

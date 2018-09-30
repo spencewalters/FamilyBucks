@@ -13,6 +13,27 @@ namespace FamilyBucksProgram {
             return $"{storagePath}{storageFilenamePrefix}{UseType.Name}.{storageFilenameExtension}";
         }
 
+        public void Save(Reward reward) {
+            List<Reward> list = Load();
+            RemoveFromList(reward.Key, list);
+
+            list.Add(reward);
+            Save(list);
+        }
+
+        private static void RemoveFromList(string key, List<Reward> list) {
+            Reward removeThis = new EmptyReward();
+            foreach (Reward record in list) {
+                if (record.Key == key) {
+                    removeThis = record;
+                    break;
+                }
+            }
+
+            if (removeThis.IsEmpty == false)
+                list.Remove(removeThis);
+        }
+
         public void Save(List<Reward> rewards) {
             string filename = StorageFilePath();
             StreamWriter file = new StreamWriter(filename);
@@ -26,6 +47,17 @@ namespace FamilyBucksProgram {
 
         public List<Reward> Load() {
             return LoadFromFile(StorageFilePath());
+        }
+
+        public Reward Load(string key) {
+            Reward reward = RewardFactory.Empty;
+            List<Reward> list = Load();
+            foreach(Reward record in list) {
+                if (record.Key == key) {
+                    reward = record.Clone();
+                }
+            }
+            return reward;
         }
 
         private List<Reward> LoadFromFile(string filename) {
@@ -67,6 +99,12 @@ namespace FamilyBucksProgram {
                 reward.SetKey(key);
             }
             return reward;
+        }
+
+        internal void Delete(string key) {
+            List<Reward> list = Load();
+            RemoveFromList(key, list);
+            Save(list);
         }
 
         private static void WriteEntry(Reward Reward, StreamWriter file) {

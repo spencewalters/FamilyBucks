@@ -17,7 +17,7 @@ namespace FamilyBucksProgram {
 
         private void SetDefaults() {
             UserFactory factory = new UserFactory();
-            SavedUser = factory.GenerateEmpty();
+            SavedUser = UserFactory.Empty;
         }
 
         private void ApplyUserToForm() {

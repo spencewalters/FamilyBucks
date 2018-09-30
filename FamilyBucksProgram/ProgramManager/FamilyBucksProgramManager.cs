@@ -21,7 +21,13 @@ namespace FamilyBucksProgram {
 
             AccountDao accountDao = new AccountDao();
             AccountInformation accountInfo = accountDao.Load(user.ID);
-
+            if (accountInfo.IsEmpty) {
+                accountInfo.SetID(user.ID);
+                accountInfo.Activate();
+                log.Info("Initializing new account");
+                log.Info(new UserLoggable(user));
+                log.Info(new AccountInformationLoggable(accountInfo));
+            }
 
             currentSession = new NormalSession(user, accountInfo, history);
         }
@@ -54,5 +60,9 @@ namespace FamilyBucksProgram {
             BankingSystem banking = new BankingSystem(currentSession.AccountInfo);
             banking.ProcessTransaction(resultTransaction);
         }
+
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger
+        (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
     }
 }

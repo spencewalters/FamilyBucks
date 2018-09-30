@@ -73,7 +73,7 @@ namespace FamilyBucksProgram {
         }
 
         private Chore ParseEntry(string entry) {
-            Chore chore = factory.GenerateEmpty();
+            Chore chore = ChoreFactory.Empty;
 
             string[] fields = entry.Split(',');
             if (fields.Length >= 4) {

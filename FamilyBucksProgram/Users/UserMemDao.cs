@@ -11,7 +11,7 @@ namespace FamilyBucksProgram {
                     return user;
             }
 
-            return factory.GenerateEmpty();
+            return UserFactory.Empty;
         }
 
         public List<User> LoadAll() {

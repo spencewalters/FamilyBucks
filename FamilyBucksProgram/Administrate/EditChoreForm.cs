@@ -12,6 +12,7 @@ namespace FamilyBucksProgram {
     public partial class EditChoreForm : Form {
         private Chore editChore;
         private ChoresDao dao;
+        private ChoreFactory factory;
         public Chore SavedChore;
 
         public EditChoreForm(Chore targetChore) {
@@ -24,8 +25,8 @@ namespace FamilyBucksProgram {
         }
         private void SetDefaults() {
             dao = new ChoresDao();
-            ChoreFactory factory = new ChoreFactory();
-            SavedChore = factory.GenerateEmpty();
+            factory = new ChoreFactory();
+            SavedChore = ChoreFactory.Empty;
         }
 
         private void ApplyChoreToForm() {
@@ -43,7 +44,7 @@ namespace FamilyBucksProgram {
 
         private void ApplyFormToChore() {
             string preserveKey = editChore.Key;
-            editChore = new FamilyChore(nameTextbox.Text, (double)valueUpDown.Value, descriptionTextbox.Text);
+            editChore = factory.Generate(nameTextbox.Text, descriptionTextbox.Text, (double)valueUpDown.Value);
             editChore.SetKey(preserveKey);
 
             if (isActiveCheckbox.Checked)
@@ -58,24 +59,21 @@ namespace FamilyBucksProgram {
             SavedChore = editChore.Clone();
         }
 
-        private void ValidateForm() {
+        private void FormIsValid() {
             bool valid = true;
 
-            if (String.IsNullOrEmpty(nameTextbox.Text))
-                valid = false;
-
-            if (String.IsNullOrEmpty(descriptionTextbox.Text))
-                valid = false;
+            valid &= FormHelper.TextFieldIsValid(nameTextbox.Text);
+            valid &= FormHelper.TextFieldIsValid(descriptionTextbox.Text);
 
             saveButton.Enabled = valid;
         }
 
         private void nameTextbox_TextChanged(object sender, EventArgs e) {
-            ValidateForm();
+            FormIsValid();
         }
 
         private void descriptionTextbox_TextChanged(object sender, EventArgs e) {
-            ValidateForm();
+            FormIsValid();
         }
 
         private void saveButton_Click(object sender, EventArgs e) {

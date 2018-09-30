@@ -61,7 +61,7 @@ namespace FamilyBucksProgram {
         }
 
         public User PINLookup(string pin) {
-            User matching = factory.GenerateEmpty();
+            User matching = UserFactory.Empty;
             foreach (string ID in records.Keys) {
                 User user = records[ID];
                 if (user.Pin == pin) {

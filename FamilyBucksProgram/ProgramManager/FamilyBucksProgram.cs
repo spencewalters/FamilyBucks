@@ -14,7 +14,7 @@ namespace FamilyBucksProgram
         int Limit { get; }        
     }
 
-    enum FamilyBucksPlayLimitation
+    public enum FamilyBucksPlayLimitation
     {
         None,
         Per_Day

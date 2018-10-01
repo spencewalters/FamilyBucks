@@ -138,11 +138,26 @@
     <Compile Include="Errors\ExceptionHandler.cs" />
     <Compile Include="Helpers\FolderHelper.cs" />
     <Compile Include="Helpers\FormHelper.cs" />
+    <Compile Include="Helpers\RandomHelper.cs" />
     <Compile Include="ProgramManager\AccountInformationLoggable.cs" />
     <Compile Include="Rewards\EmptyReward.cs" />
     <Compile Include="Rewards\LoggableReward.cs" />
     <Compile Include="Rewards\RewardFactory.cs" />
     <Compile Include="Rewards\RewardTests.cs" />
+    <Compile Include="TypingGame\Position.cs" />
+    <Compile Include="TypingGame\Rocket.cs" />
+    <Compile Include="TypingGame\VesselFactory.cs" />
+    <Compile Include="TypingGame\Sprite.cs" />
+    <Compile Include="TypingGame\TypingGame.cs" />
+    <Compile Include="TypingGame\TypingGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypingGame\TypingGameForm.Designer.cs">
+      <DependentUpon>TypingGameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TypingGame\Vessel.cs" />
+    <Compile Include="TypingGame\VesselLoggable.cs" />
+    <Compile Include="TypingGame\VesselSprite.cs" />
     <Compile Include="Users\UserLoggable.cs" />
     <Compile Include="Users\UserRecords.cs" />
     <Compile Include="MyCharacter\MyCharacter.cs">
@@ -275,6 +290,9 @@
     <EmbeddedResource Include="Rewards\RewardsForm.resx">
       <DependentUpon>RewardsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TypingGame\TypingGameForm.resx">
+      <DependentUpon>TypingGameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -300,6 +318,8 @@
     <None Include="Resources\fields.png" />
     <None Include="Resources\home.png" />
     <None Include="Resources\user.png" />
+    <None Include="Resources\TypingProgram-1.png" />
+    <None Include="Resources\rocket2.png" />
     <Content Include="Resources\Victory.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -143,6 +143,16 @@ namespace FamilyBucksProgram.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap rocket2 {
+            get {
+                object obj = ResourceManager.GetObject("rocket2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Smiling {
             get {
                 object obj = ResourceManager.GetObject("Smiling", resourceCulture);
@@ -166,6 +176,16 @@ namespace FamilyBucksProgram.Properties {
         internal static System.Drawing.Bitmap thumb_up {
             get {
                 object obj = ResourceManager.GetObject("thumb-up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TypingProgram_1 {
+            get {
+                object obj = ResourceManager.GetObject("TypingProgram-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

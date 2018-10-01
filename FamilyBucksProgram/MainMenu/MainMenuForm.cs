@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Media;
 using System.Windows.Forms;
-
+using FamilyBucksProgram.TypingGame;
 
 namespace FamilyBucksProgram {
     public partial class MainMenuForm : Form {
@@ -154,6 +154,9 @@ namespace FamilyBucksProgram {
                     case "Chores Completion":
                         resultTransaction = RunChoresCompletion(programManager.SessionUser);
                         break;
+                    case "Typing Game":
+                        resultTransaction = PlayTypingGame();
+                        break;
                     default:
                         break;
                 }
@@ -165,7 +168,6 @@ namespace FamilyBucksProgram {
             else
                 MessageBox.Show("You have already played this game up to the limit!", "No more playing this today");
         }
-
         private void InformUserOfChangeToBalance(BankTransaction resultTransaction) {
             if (resultTransaction.TransactionAmount > 0) {
                 string amount = resultTransaction.TransactionAmount.ToString("N2");
@@ -175,6 +177,12 @@ namespace FamilyBucksProgram {
                 else
                     MessageBox.Show($"You've spent {amount} Family Bucks.");
             }
+        }
+
+        private BankTransaction PlayTypingGame() {
+            TypingGameForm form = new TypingGameForm();
+            form.ShowDialog();
+            return form.ResultTransaction;
         }
 
         private BankTransaction RunChoresCompletion(User user) {
@@ -282,8 +290,17 @@ namespace FamilyBucksProgram {
             form.ShowDialog();
         }
 
+
+        private void typingLbl_Click(object sender, EventArgs e) {
+            try {
+                RunProgram(new TypingProgram());
+            }
+            catch (Exception exception) {
+                ExceptionHandler.RespondTo(exception);
+            }
+        }
+
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger
         (System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
     }
 }

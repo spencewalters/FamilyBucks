@@ -90,6 +90,7 @@
             this.typingLbl.Tag = "session";
             this.typingLbl.Text = "Play Typing Game!!";
             this.typingLbl.UseVisualStyleBackColor = true;
+            this.typingLbl.Click += new System.EventHandler(this.typingLbl_Click);
             // 
             // nycBtn
             // 

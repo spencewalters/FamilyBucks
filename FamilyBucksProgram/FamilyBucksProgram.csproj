@@ -144,6 +144,12 @@
     <Compile Include="Rewards\LoggableReward.cs" />
     <Compile Include="Rewards\RewardFactory.cs" />
     <Compile Include="Rewards\RewardTests.cs" />
+    <Compile Include="Rewards\ShowReward.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rewards\ShowReward.Designer.cs">
+      <DependentUpon>ShowReward.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypingGame\Position.cs" />
     <Compile Include="TypingGame\Rocket.cs" />
     <Compile Include="TypingGame\VesselFactory.cs" />
@@ -289,6 +295,9 @@
     </Compile>
     <EmbeddedResource Include="Rewards\RewardsForm.resx">
       <DependentUpon>RewardsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rewards\ShowReward.resx">
+      <DependentUpon>ShowReward.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypingGame\TypingGameForm.resx">
       <DependentUpon>TypingGameForm.cs</DependentUpon>
